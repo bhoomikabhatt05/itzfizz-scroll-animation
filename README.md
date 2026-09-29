@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Itzfizz — Scroll-Driven Hero
 
-## Getting Started
+A premium, scroll-driven hero experience built for the Web Development Internship assignment at Itzfizz Digital. The hero is a cinematic, editorial composition where a large automotive visual travels across the viewport in direct response to scroll progress — powered entirely by GSAP ScrollTrigger.
 
-First, run the development server:
+## Overview
+
+- Full-screen sticky hero inside a tall scroll section (~220vh)
+- The car visual moves smoothly from right to left as the user scrolls, with subtle scale and rotation for a heavy, cinematic feel
+- Background layers (giant outlined typography, radial glow, circular geometry, hairline grid) respond at different speeds for parallax depth
+- A fast (~1.4s) initial-load timeline reveals the headline, copy, statistics, car, and scroll indicator
+- A minimal second section ("BUILT TO MOVE") closes the page
+- Fully responsive from 375px to 1440px+, with `prefers-reduced-motion` support
+
+## Features
+
+- Scroll-driven GSAP animation (ScrollTrigger, `scrub: 1`, `ease: "none"`)
+- Responsive scroll distances via `gsap.matchMedia()` and function-based values
+- Initial-load intro timeline (masked line reveals, staggered statistics)
+- Multi-speed background parallax
+- Performance-conscious motion (transform/opacity only, no layout thrash)
+- Reduced-motion support (clean static hero, no forced animation)
+- Tasteful SVG fallback until `public/car.png` is added — no broken images, ever
+
+## Tech Stack
+
+- **Next.js** — App Router, React Server Components where possible
+- **React** — TypeScript, `"use client"` only where animation runs
+- **TypeScript** — strict, typed throughout
+- **Tailwind CSS** — v4 utility-first styling
+- **GSAP + ScrollTrigger** — all scroll and intro motion
+- **Geist Sans / Geist Mono** — via `next/font/google`
+
+## Project Structure
+
+```
+app/
+  globals.css      — theme tokens, grain, outline text, keyframes
+  layout.tsx       — fonts, metadata, dark theme
+  page.tsx         — server component composing the page
+components/
+  Hero.tsx         — sticky hero + all GSAP scroll/intro logic
+  ScrollCar.tsx    — car visual with graceful fallback
+  Stats.tsx        — experience metrics
+  Header.tsx       — minimal header
+  SecondSection.tsx— "BUILT TO MOVE" closing section
+lib/
+  gsap.ts          — gsap + ScrollTrigger registration
+public/
+  car.png          — drop your transparent car asset here
+```
+
+## Installation
+
+```bash
+npm install
+```
+
+## Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project is a standard Next.js app and deploys to Vercel with zero configuration:
 
-## Deploy on Vercel
+1. Push the repository to GitHub.
+2. In the [Vercel dashboard](https://vercel.com), choose **Add New → Project** and import the repository.
+3. Vercel auto-detects Next.js — click **Deploy**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Every subsequent push to the main branch triggers a production deployment; pull requests get previews automatically.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Assignment Requirements
+
+| Requirement | Implementation |
+| --- | --- |
+| Hero section | Full-viewport sticky hero, editorial asymmetric composition |
+| Initial load animation | ~1.4s GSAP intro timeline: masked headline reveal, staggered stats, car fade |
+| Statistics | 92% / 68% / 3× demo metrics under an "EXPERIENCE METRICS" eyebrow |
+| Scroll-driven visual | Car travels right → left via ScrollTrigger `scrub: 1`, `ease: "none"` |
+| GSAP | ScrollTrigger + `useGSAP` + `gsap.matchMedia`, proper cleanup via GSAP context |
+| Responsive design | Breakpoint-specific timelines, `clamp()` typography, mobile-tuned layout |
+| Performance | Transform/opacity-only animation, no scroll listeners, no continuous layout reads |
+| Reduced motion | Media query disables intro and scroll motion; static hero remains |
+
+## Adding the Car Asset
+
+Place a transparent-background car image at `public/car.png`. The hero will use it automatically — no code changes required. Until then, a tasteful SVG silhouette is rendered so the page never shows a broken image.
