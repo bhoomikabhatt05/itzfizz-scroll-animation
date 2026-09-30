@@ -1,7 +1,8 @@
 const STATS = [
   { index: "01", value: "92%", label: "Visual immersion" },
   { index: "02", value: "68%", label: "Interaction focus" },
-  { index: "03", value: "3×", label: "Motion depth" },
+  { index: "03", value: "84%", label: "Scroll response" },
+  { index: "04", value: "100%", label: "Transform motion" },
 ] as const;
 
 export default function Stats() {
@@ -11,7 +12,7 @@ export default function Stats() {
         <span className="inline-block size-[3px] bg-ember" />
         EXPERIENCE METRICS · DEMO
       </p>
-      <div className="mt-5 flex flex-col gap-4 md:flex-row md:items-baseline md:gap-10">
+      <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-4 md:flex md:flex-row md:items-baseline md:gap-10">
         {STATS.map((stat) => (
           <div
             key={stat.label}

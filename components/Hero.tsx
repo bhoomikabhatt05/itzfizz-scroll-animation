@@ -64,12 +64,6 @@ export default function Hero() {
             0.6,
           )
           .fromTo(
-            ".hero-stat",
-            { opacity: 0, y: 22 },
-            { opacity: 1, y: 0, duration: 0.75, stagger: 0.08 },
-            0.72,
-          )
-          .fromTo(
             ".hero-progress",
             { opacity: 0 },
             { opacity: 1, duration: 0.5 },
@@ -102,6 +96,8 @@ export default function Hero() {
 
       mm.add("(min-width: 1024px)", () => {
         if (prefersReducedMotion) return;
+
+        gsap.set(".hero-stat", { y: 26, opacity: 0 });
 
         const tl = gsap.timeline({
           defaults: { ease: "none" },
@@ -148,10 +144,10 @@ export default function Hero() {
           .fromTo(
             ".hero-car-drift",
             { y: 0 },
-            { y: -10, duration: 0.5 },
+            { y: -16, duration: 0.45 },
             0,
           )
-          .to(".hero-car-drift", { y: -3, duration: 0.5 }, 0.5)
+          .to(".hero-car-drift", { y: -3, duration: 0.55 }, 0.45)
           .fromTo(
             ".hero-car-shadow",
             { opacity: 0.55, scaleX: 1 },
@@ -160,14 +156,24 @@ export default function Hero() {
           )
           .fromTo(
             ".hero-headline-block",
-            { x: 0, y: 0, opacity: 1 },
+            { x: 0, y: 0, opacity: 0.35 },
+            {
+              x: () => vw() * 0.005,
+              y: -14,
+              opacity: 1,
+              duration: 0.25,
+            },
+            0.05,
+          )
+          .to(
+            ".hero-headline-block",
             {
               x: () => vw() * 0.015,
               y: -70,
               opacity: 0,
-              duration: 0.88,
+              duration: 0.15,
             },
-            0,
+            0.85,
           )
           .to(
             ".hero-line-to",
@@ -184,11 +190,10 @@ export default function Hero() {
             { y: -30, opacity: 0, duration: 0.75 },
             0,
           )
-          .fromTo(
-            ".hero-stats-block",
-            { y: 0, opacity: 1 },
-            { y: -20, opacity: 0, duration: 0.6 },
-            0,
+          .to(
+            ".hero-stat",
+            { y: 0, opacity: 1, duration: 0.1, stagger: 0.18 },
+            0.32,
           )
           .fromTo(
             ".hero-header-rule",
@@ -246,6 +251,8 @@ export default function Hero() {
       mm.add("(max-width: 1023.98px)", () => {
         if (prefersReducedMotion) return;
 
+        gsap.set(".hero-stat", { y: 26, opacity: 0 });
+
         const tl = gsap.timeline({
           defaults: { ease: "none" },
           scrollTrigger: {
@@ -291,10 +298,10 @@ export default function Hero() {
           .fromTo(
             ".hero-car-drift",
             { y: 0 },
-            { y: -8, duration: 0.5 },
+            { y: -12, duration: 0.45 },
             0,
           )
-          .to(".hero-car-drift", { y: -2, duration: 0.5 }, 0.5)
+          .to(".hero-car-drift", { y: -2, duration: 0.55 }, 0.45)
           .fromTo(
             ".hero-car-shadow",
             { opacity: 0.55, scaleX: 1 },
@@ -303,14 +310,24 @@ export default function Hero() {
           )
           .fromTo(
             ".hero-headline-block",
-            { x: 0, y: 0, opacity: 1 },
+            { x: 0, y: 0, opacity: 0.35 },
+            {
+              x: () => vw() * 0.004,
+              y: -8,
+              opacity: 1,
+              duration: 0.25,
+            },
+            0.05,
+          )
+          .to(
+            ".hero-headline-block",
             {
               x: () => vw() * 0.01,
               y: -36,
               opacity: 0,
-              duration: 0.88,
+              duration: 0.15,
             },
-            0,
+            0.85,
           )
           .to(
             ".hero-line-to",
@@ -327,11 +344,10 @@ export default function Hero() {
             { y: -24, opacity: 0, duration: 0.75 },
             0,
           )
-          .fromTo(
-            ".hero-stats-block",
-            { y: 0, opacity: 1 },
-            { y: -16, opacity: 0, duration: 0.6 },
-            0,
+          .to(
+            ".hero-stat",
+            { y: 0, opacity: 1, duration: 0.1, stagger: 0.18 },
+            0.32,
           )
           .fromTo(
             ".hero-header-rule",
