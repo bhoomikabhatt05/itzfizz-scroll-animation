@@ -15,13 +15,13 @@ export default function Stats() {
         {STATS.map((stat) => (
           <div
             key={stat.label}
-            className="hero-stat border-t border-white/10 pt-3 md:border-t-0 md:border-l md:pt-0 md:pl-5"
+            className="hero-stat border-t border-white/[0.07] pt-3 md:border-t-0 md:border-l md:pt-0 md:pl-5"
           >
             <p className="flex items-baseline gap-3">
               <span className="font-mono text-[9px] tracking-[0.25em] text-white/30">
                 {stat.index}
               </span>
-              <span className="text-[clamp(1.35rem,2vw,1.9rem)] leading-none font-medium tracking-[0.03em] text-bone">
+              <span className="text-[clamp(1.2rem,1.8vw,1.7rem)] leading-none font-medium tracking-[0.03em] text-bone/85">
                 {stat.value}
               </span>
             </p>

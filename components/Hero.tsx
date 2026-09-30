@@ -121,19 +121,29 @@ export default function Hero() {
             x: () => vw() * -0.02,
             rotation: 0.15,
             scale: 1.005,
-            duration: 0.15,
+            duration: 0.3,
           },
           0,
         )
           .to(
             ".hero-car",
             {
+              x: () => vw() * -0.8,
+              rotation: 0.6,
+              scale: 1.03,
+              duration: 0.63,
+            },
+            0.3,
+          )
+          .to(
+            ".hero-car",
+            {
               x: () => vw() * -1.06,
               rotation: 0.8,
               scale: 1.04,
-              duration: 0.85,
+              duration: 0.07,
             },
-            0.15,
+            0.93,
           )
           .fromTo(
             ".hero-car-drift",
@@ -145,8 +155,8 @@ export default function Hero() {
           .fromTo(
             ".hero-car-shadow",
             { opacity: 0.55, scaleX: 1 },
-            { opacity: 0.32, scaleX: 0.86, duration: 0.85 },
-            0.15,
+            { opacity: 0.32, scaleX: 0.86, duration: 0.7 },
+            0.3,
           )
           .fromTo(
             ".hero-headline-block",
@@ -254,19 +264,29 @@ export default function Hero() {
             x: () => vw() * -0.02,
             rotation: 0.15,
             scale: 1.005,
-            duration: 0.15,
+            duration: 0.3,
           },
           0,
         )
           .to(
             ".hero-car",
             {
+              x: () => vw() * -0.82,
+              rotation: 0.5,
+              scale: 1.02,
+              duration: 0.63,
+            },
+            0.3,
+          )
+          .to(
+            ".hero-car",
+            {
               x: () => vw() * -1.08,
               rotation: 0.6,
               scale: 1.03,
-              duration: 0.85,
+              duration: 0.07,
             },
-            0.15,
+            0.93,
           )
           .fromTo(
             ".hero-car-drift",
@@ -278,8 +298,8 @@ export default function Hero() {
           .fromTo(
             ".hero-car-shadow",
             { opacity: 0.55, scaleX: 1 },
-            { opacity: 0.32, scaleX: 0.86, duration: 0.85 },
-            0.15,
+            { opacity: 0.32, scaleX: 0.86, duration: 0.7 },
+            0.3,
           )
           .fromTo(
             ".hero-headline-block",

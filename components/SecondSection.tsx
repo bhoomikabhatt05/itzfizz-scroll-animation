@@ -41,14 +41,22 @@ export default function SecondSection() {
       <div className="mx-auto w-full max-w-6xl">
         <p className="reveal-item flex items-center gap-3 font-mono text-[10px] tracking-[0.45em] text-white/35">
           <span className="inline-block size-[3px] bg-ember" />
-          01 / 02 — APPROACH
+          02 — TRANSITION
         </p>
         <h2 className="reveal-item mt-8 text-[clamp(2.6rem,7.5vw,6rem)] leading-[1.02] font-medium tracking-[0.06em] text-bone">
           BUILT TO MOVE
         </h2>
         <p className="reveal-item mt-10 max-w-xl text-sm leading-relaxed text-white/45 md:text-base">
-          Scroll-driven interaction, responsive composition, and motion designed
-          as part of the interface.
+          A scroll-driven study in motion,
+          <br />
+          where interaction becomes part of
+          <br />
+          the visual language.
+        </p>
+        <p className="reveal-item mt-12 font-mono text-[9px] leading-loose tracking-[0.4em] text-white/35">
+          NEXT
+          <br />
+          SCROLL TO CONTINUE →
         </p>
       </div>
     </section>
