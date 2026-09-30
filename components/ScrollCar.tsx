@@ -25,16 +25,22 @@ export default function ScrollCar({ className = "" }: { className?: string }) {
 
   return (
     <div className={className}>
-      {/* eslint-disable-next-line @next/next/no-img-element -- plain img is required for the load/error fallback swap */}
-      <img
-        ref={imgRef}
-        src="/car.png"
-        alt="Itzfizz GT concept vehicle in profile"
-        draggable={false}
-        onLoad={() => setAsset("loaded")}
-        onError={() => setAsset("missing")}
-        className="hero-car-img block h-auto w-full object-contain"
+      <div
+        aria-hidden="true"
+        className="hero-car-shadow absolute right-[10%] -bottom-4 left-[10%] h-10 rounded-[100%] bg-black/70 blur-2xl md:-bottom-6"
       />
+      <div className="hero-car-drift relative">
+        {/* eslint-disable-next-line @next/next/no-img-element -- plain img is required for the load/error fallback swap */}
+        <img
+          ref={imgRef}
+          src="/car.png"
+          alt="Itzfizz GT concept vehicle in profile"
+          draggable={false}
+          onLoad={() => setAsset("loaded")}
+          onError={() => setAsset("missing")}
+          className="hero-car-img block h-auto w-full object-contain"
+        />
+      </div>
     </div>
   );
 }
